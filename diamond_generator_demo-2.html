@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Generator Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#11152b,#25205c);color:white;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:420px;background:rgba(20,20,45,.95);border:1px solid #514aa5;border-radius:22px;padding:28px;box-shadow:0 20px 60px #0008;text-align:center}
+.diamond{font-size:64px;margin-bottom:5px}.badge{display:inline-block;background:#3a356e;border-radius:20px;padding:6px 12px;font-size:12px;color:#c9c5ff;margin-bottom:15px}
+h1{margin:5px 0 8px;font-size:28px}p{color:#bcbcd0;line-height:1.5}
+label{display:block;text-align:left;margin:18px 0 7px;font-size:14px;color:#ddd}
+input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #55517d;background:#111329;color:white;font-size:16px;outline:none}
+button{width:100%;margin-top:22px;padding:15px;border:0;border-radius:12px;background:linear-gradient(90deg,#6d5dfc,#9b5cff);color:white;font-size:17px;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.98)}.result{display:none;margin-top:20px;padding:16px;border-radius:14px;background:#171a35;border:1px solid #514aa5}
+.small{font-size:12px;color:#8f8fa8;margin-top:18px}
+.warning{font-size:12px;color:#aaa8c0;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="diamond">💎</div>
+  <div class="badge">DEMO / SIMULATION</div>
+  <h1>Diamond Generator</h1>
+  <p>This is a fictional demo. It does not connect to Free Fire and cannot add real diamonds.</p>
+
+  <label for="uid">Player UID</label>
+  <input id="uid" type="text" inputmode="numeric" placeholder="Enter any demo UID">
+
+  <label for="amount">Diamonds</label>
+  <select id="amount">
+    <option>100</option><option>500</option><option>1000</option><option>2500</option>
+  </select>
+
+  <button onclick="generate()">⚡ Generate Demo Diamonds</button>
+
+  <div class="result" id="result"></div>
+  <div class="warning">For demonstration only. No account information is sent or stored.</div>
+  <div class="small">Fan-made mockup • Not affiliated with Garena or Free Fire</div>
+</div>
+
+<script>
+function generate(){
+  const uid=document.getElementById('uid').value.trim();
+  const amount=document.getElementById('amount').value;
+  const result=document.getElementById('result');
+  if(!uid){result.style.display='block';result.textContent='Please enter a demo UID.';return;}
+  result.style.display='block';
+  result.innerHTML='⏳ Simulating generation...';
+  setTimeout(()=>{
+    result.innerHTML='✅ Demo complete!<br><br>💎 '+amount+' <b>SIMULATED</b> diamonds for UID '+uid+'.<br><small>No real diamonds were added.</small>';
+  },1800);
+}
+</script>
+</body>
+</html>
